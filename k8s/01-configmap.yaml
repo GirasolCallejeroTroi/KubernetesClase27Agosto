@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: practica
+data:
+  modo_debug: "true"
+  max_conexiones: "100"
+  mensaje: "Practica Kubernetes — 27 de agosto"
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Práctica Kubernetes</title>
+      <style>
+        :root { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; }
+        body { max-width: 720px; margin: 12vh auto; padding: 0 1.5rem; }
+        h1 { color: #38bdf8; }
+        .card { background: #1e293b; border-radius: 12px; padding: 1.5rem; }
+        code { color: #fbbf24; }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <h1>Cluster Minikube listo</h1>
+        <p>Estudiante: <strong>Alejandro Roque Morales</strong> — ADSO</p>
+        <p>Esta página la sirve un Deployment de nginx dentro del namespace <code>practica</code>.</p>
+        <ul>
+          <li>Service ClusterIP: acceso interno</li>
+          <li>Service NodePort: puerto <code>30080</code></li>
+          <li>Ingress: host <code>miapp.local</code></li>
+        </ul>
+      </div>
+    </body>
+    </html>
